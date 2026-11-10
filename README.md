@@ -15,9 +15,39 @@ Present hands-free: change slides, point, draw and click with simple hand gestur
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel&logoColor=white)
 
+![The Airglide app: the dashboard and the quick panel showing a live hand gesture](public/images/hero-light.webp)
+
 </div>
 
 ---
+
+## What is Airglide?
+
+[Airglide](https://github.com/sushilydv-dev/Airglide) is a **gesture-controlled presentation app** for **macOS** and
+**Windows 10/11**. It watches your hand through an ordinary webcam and turns simple hand shapes into the keys your
+slides understand: next, previous, first, last, black screen and exit. Open your palm for a laser pointer or a pen,
+use your hand as a mouse, and ask an AI assistant that has read your deck for talking points or likely audience
+questions.
+
+There's no clicker, no gloves and no account. It works with PowerPoint, Keynote, Google Slides, LibreOffice
+Impress, PDF viewers and Word documents, and the video and the AI both stay on your computer.
+
+| | | |
+|---|---|---|
+| ![Gesture control with a live camera](public/images/gestures.webp) | ![The virtual mouse](public/images/mouse.webp) | ![The quick panel over a full-screen slideshow](public/images/presenting-panel.webp) |
+| **Gesture control:** ten hand shapes, each mapped to an action | **Virtual mouse:** point, pinch to click, scroll | **On stage:** a quick panel over full-screen slideshows |
+
+<p align="center">
+  <img src="public/images/hand-shaka.webp" alt="Thumb and pinky out: next slide" width="24%" />
+  <img src="public/images/hand-fist.webp" alt="Fist: previous slide" width="24%" />
+  <img src="public/images/hand-palm.webp" alt="Open palm: laser, pen or off" width="24%" />
+  <img src="public/images/hand-l.webp" alt="L-shape: pause gestures" width="24%" />
+  <br />
+  <sub>Next slide · Previous slide · Laser / pen · Pause</sub>
+</p>
+
+This repository is the **website** where people learn about Airglide and download it. The app itself lives in
+[sushilydv-dev/Airglide](https://github.com/sushilydv-dev/Airglide).
 
 ## Overview
 
