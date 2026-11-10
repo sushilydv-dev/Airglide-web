@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* Absans by Collletttivo, SIL Open Font License 1.1 (see src/fonts/absans/LICENSE.txt). One weight: Regular. */
+@font-face {
+  font-family: "Absans";
+  src: url("./fonts/absans/Absans-Regular.woff2") format("woff2"), url("./fonts/absans/Absans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Dark mode follows the .dark class on <html> (set before paint in index.html). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Airglide design tokens: the same values as the app (views/app.css) ---- */
+:root {
+  --bg: #f3f5fb;
+  --blob-1: rgba(120, 156, 255, 0.30);
+  --blob-2: rgba(186, 170, 255, 0.28);
+  --surface: #ffffff;
+  --surface-2: #f8f9fd;
+  --surface-3: #eef1f8;
+  --border: #e8ebf3;
+  --border-strong: #d8ddea;
+  --text: #11131a;
+  --text-2: #4f5668;
+  --text-3: #959cad;
+  --primary: #2563eb;
+  --primary-hover: #1d4fd8;
+  --primary-soft: #eaf1ff;
+  --primary-soft-2: #dbe6ff;
+  --on-primary: #ffffff;
+  --success-soft: #e8f8ee;
+  --warn-soft: #fff4e0;
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 10px 30px rgba(36, 52, 105, 0.07);
+  --shadow-lg: 0 2px 6px rgba(17, 24, 39, 0.06), 0 24px 60px rgba(36, 52, 105, 0.16);
+  --ring: 0 0 0 3px rgba(37, 99, 235, 0.28);
+  --glass: rgba(243, 245, 251, 0.72);
+  --navy-ink: #0b1633;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0d1017;
+  --blob-1: rgba(70, 110, 255, 0.20);
+  --blob-2: rgba(140, 100, 255, 0.16);
+  --surface: #161a24;
+  --surface-2: #1b202c;
+  --surface-3: #232938;
+  --border: #262c3b;
+  --border-strong: #333b4e;
+  --text: #eef1f7;
+  --text-2: #aab2c5;
+  --text-3: #6f7891;
+  --primary: #4f86ff;
+  --primary-hover: #6a98ff;
+  --primary-soft: rgba(79, 134, 255, 0.14);
+  --primary-soft-2: rgba(79, 134, 255, 0.24);
+  --success-soft: rgba(34, 197, 94, 0.14);
+  --warn-soft: rgba(245, 158, 11, 0.14);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.35), 0 24px 60px rgba(0, 0, 0, 0.45);
+  --glass: rgba(13, 16, 23, 0.7);
+  --navy-ink: #1d4fd8;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Absans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Absans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Absans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Absans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-ink-2: var(--text-2);
+  --color-ink-3: var(--text-3);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-2: var(--primary-soft-2);
+  --color-on-primary: var(--on-primary);
+  --color-success-soft: var(--success-soft);
+  --color-warn-soft: var(--warn-soft);
+  --color-brand-green: #22c55e;
+  --color-brand-purple: #a855f7;
+  --color-brand-orange: #f97316;
+  --color-brand-pink: #ec4899;
+  --color-brand-teal: #14b8a6;
+  --color-brand-amber: #f59e0b;
+  --color-navy: #0b1633;
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --shadow-soft: var(--shadow);
+  --shadow-lift: var(--shadow-lg);
+  --shadow-ring: var(--ring);
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
+
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-60px, 40px, 0) scale(1.08); } }
+  @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); } 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: 0;
+    font-synthesis: none; /* single-weight family: never fake bold or italic */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection { background: var(--primary-soft-2); }
+  :focus-visible { outline: none; box-shadow: var(--ring); border-radius: 10px; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+}
+
+/* ---- type utilities (usable in @apply) ---- */
+@utility display { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.9; }
+/* accent words: lowercase in the brand blue (Absans has no italic, and a faked one would look smudged) */
+@utility serif-i { font-family: var(--font-serif); font-style: normal; font-weight: 400; text-transform: lowercase; letter-spacing: -0.035em; }
+@utility label { font-family: var(--font-mono); font-size: 0.76rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12; }
+
+  .section-title { @apply display text-[3.2rem] sm:text-[5rem] lg:text-[7rem]; }
+  .section-lead { @apply mt-6 max-w-xl text-[1.08rem] leading-relaxed text-ink-2 sm:text-[1.2rem]; }
+  .eyebrow { @apply label inline-flex items-center gap-3 text-ink-2; }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
+
+  /* ---- buttons: pill, with a fill that wipes in on hover ---- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden whitespace-nowrap rounded-full border border-line-strong bg-transparent px-6 font-medium text-ink;
+    height: 3rem; isolation: isolate; transition: color 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s;
+  }
+  .btn::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--text);
+    transform: translateY(101%); transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn:hover { color: var(--bg); border-color: var(--text); }
+  .btn:hover::after { transform: translateY(0); }
+  .btn-primary { @apply border-primary bg-primary text-on-primary; }
+  .btn-primary::after { background: var(--navy-ink); }
+  .btn-primary:hover { color: #fff; border-color: var(--navy-ink); }
+  .btn-soft { @apply border-transparent bg-primary-soft text-primary; }
+  .btn-ghost { @apply border-transparent; }
+  .btn-lg { height: 3.75rem; @apply px-8 text-[1.02rem]; }
+
+  .chip { @apply label inline-flex items-center gap-2 rounded-full border border-line-strong px-3 py-1.5 text-ink-2; }
+  .chip-blue { @apply border-primary/40 text-primary; }
+  .chip-green { @apply border-[#22c55e]/40 text-[#15803d] dark:text-[#4ade80]; }
+
+  .card { @apply rounded-[22px] border border-line bg-surface; }
+  .hairline { @apply border-t border-line-strong; }
+  .icon-tile { @apply grid shrink-0 place-items-center rounded-full text-white; width: 2.9rem; height: 2.9rem; }
+
+  .link-underline { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+  .link-underline:hover { background-size: 100% 1px; }
+
+  /* spotlight kept for small cards */
+  .spotlight { position: relative; isolation: isolate; }
+  .spotlight::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none;
+    background: radial-gradient(380px circle at var(--x, 50%) var(--y, 0%), var(--primary-soft-2), transparent 60%);
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .spotlight:hover::before { opacity: 1; }
+
+  .glass { background: var(--glass); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); }
+  .noise::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .prose-ag { @apply text-ink-2; }
+  .prose-ag h2 { @apply display mt-14 mb-4 text-[1.9rem] text-ink sm:text-[2.3rem]; }
+  .prose-ag h3 { @apply mt-8 mb-2 text-[1.15rem] font-semibold text-ink; }
+  .prose-ag p { @apply my-3 leading-7; }
+  .prose-ag ul { @apply my-3 list-disc space-y-1.5 pl-5; }
+  .prose-ag ol { @apply my-3 list-decimal space-y-1.5 pl-5; }
+  .prose-ag a { @apply font-medium text-primary underline underline-offset-4; }
+  .prose-ag strong { @apply font-semibold text-ink; }
+  .prose-ag code { font-family: var(--font-mono); @apply rounded-md bg-surface-3 px-1.5 py-0.5 text-[0.85em] text-ink; }
+  .prose-ag kbd { font-family: var(--font-mono); @apply rounded-md border border-line-strong bg-surface px-1.5 py-0.5 text-[0.8em] text-ink; }
+}
+
+/* Lenis smooth scrolling */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* custom cursor: hide the system one only where ours is active */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor * { cursor: none !important; }
+}
+
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes accordion-down { from { height: 0; opacity: 0; } to { height: var(--radix-accordion-content-height); opacity: 1; } }
+@keyframes accordion-up { from { height: var(--radix-accordion-content-height); opacity: 1; } to { height: 0; opacity: 0; } }
+.accordion-content { overflow: hidden; }
+.accordion-content[data-state="open"] { animation: accordion-down 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.accordion-content[data-state="closed"] { animation: accordion-up 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+/* sections sit below the fixed header when jumped to */
+section[id], [id].anchor { scroll-margin-top: 88px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
