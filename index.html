@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airglide · Present hands-free</title>
     <meta name="description" content="Airglide turns your webcam into a remote. Change slides, point, draw and move your mouse with simple hand gestures, with an on-device AI that knows your deck. For macOS and Windows." />
-    <meta name="theme-color" content="#f3f5fb" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0d1017" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f5fb" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -16,10 +15,10 @@
     <meta property="og:image" content="/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <script>
-      // Apply the saved or system theme before first paint, so there's no flash.
+      // Apply the saved theme before first paint, so there's no flash. Light is the default.
       try {
-        var t = localStorage.getItem("airglide-theme");
-        var dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        var t = localStorage.getItem("airglide-theme") || "light";
+        var dark = t === "dark" || (t === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
         document.documentElement.classList.toggle("dark", dark);
       } catch (e) {}
     </script>

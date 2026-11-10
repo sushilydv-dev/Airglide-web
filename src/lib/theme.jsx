@@ -1,15 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 const KEY = "airglide-theme";
-const ThemeContext = createContext({ theme: "light", choice: "system", setChoice: () => {} });
+const ThemeContext = createContext({ theme: "light", choice: "light", setChoice: () => {} });
 
 const systemDark = () => typeof matchMedia !== "undefined" && matchMedia("(prefers-color-scheme: dark)").matches;
 
 function readChoice() {
   try {
-    return localStorage.getItem(KEY) || "system";
+    return localStorage.getItem(KEY) || "light"; // light unless the visitor picked something else
   } catch {
-    return "system";
+    return "light";
   }
 }
 
@@ -33,8 +33,7 @@ export function ThemeProvider({ children }) {
   const setChoice = useCallback((next) => {
     setChoiceState(next);
     try {
-      if (next === "system") localStorage.removeItem(KEY);
-      else localStorage.setItem(KEY, next);
+      localStorage.setItem(KEY, next);
     } catch {
       /* private mode: the choice just isn't remembered */
     }

@@ -37,7 +37,7 @@ sizes and release notes are read from GitHub's public API in the visitor's brows
 
 ### Highlights
 
-- **Light and dark themes** using the app's own colour tokens, following the system setting or the visitor's choice
+- **Light and dark themes** using the app's own colour tokens. Light is the default; visitors can switch to dark or match their system
 - **Motion**: smooth scrolling, masked line reveals, a paragraph that lights up word by word, a pinned
   horizontally scrolling feature section, a scroll-speed marquee, magnetic buttons, a custom cursor, an intro
   loader and page transitions
